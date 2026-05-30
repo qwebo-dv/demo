@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "portfolio_items",
+  "info": {
+    "singularName": "portfolio-item",
+    "pluralName": "portfolio-items",
+    "displayName": "Portfolio item",
+    "description": "ArchTerra portfolio card"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": { "type": "string", "required": true },
+    "type": { "type": "string" },
+    "image": { "type": "string" },
+    "description": { "type": "text" },
+    "sortOrder": { "type": "integer", "default": 0 }
+  }
+}

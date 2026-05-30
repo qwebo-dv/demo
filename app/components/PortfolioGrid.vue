@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import { portfolio } from '~/data/site'
+import { portfolio as fallbackPortfolio } from '~/data/site'
+
+defineProps<{ items?: typeof fallbackPortfolio }>()
 </script>
 <template>
   <div class="portfolio-grid">
-    <article v-for="item in portfolio" :key="item.title" class="portfolio-item reveal">
+    <article v-for="item in (items || fallbackPortfolio)" :key="item.title" class="portfolio-item reveal">
       <img :src="item.image" :alt="item.title" loading="lazy">
       <div>
         <p>{{ item.type }}</p>

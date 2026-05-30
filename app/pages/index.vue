@@ -1,18 +1,26 @@
 <script setup lang="ts">
-import { services } from '~/data/site'
+import { services as fallbackServices, siteSettings } from '~/data/site'
+
+const { data: content } = await useFetch('/api/content', {
+  default: () => ({ settings: siteSettings, services: fallbackServices, portfolio: [] })
+})
+
+const settings = computed(() => content.value.settings || siteSettings)
+const services = computed(() => content.value.services?.length ? content.value.services : fallbackServices)
+const portfolioItems = computed(() => content.value.portfolio || [])
 
 useSeoMeta({
-  title: 'Архитектура в природном материале',
-  description: 'Премиальная студия ArchTerra: натуральный камень, художественная роспись, архитектурное освещение и ландшафт для частной архитектуры.',
-  ogTitle: 'ArchTerra — архитектура в природном материале',
+  title: () => settings.value.slogan,
+  description: () => settings.value.description,
+  ogTitle: () => `${settings.value.brand} — ${settings.value.slogan}`,
   ogDescription: 'Команда мастеров и авторский подход к камню, фрескам, свету и ландшафту.',
-  ogUrl: 'https://archterra.ru/'
+  ogUrl: () => settings.value.domain
 })
 </script>
 
 <template>
   <div>
-    <HeroSection />
+    <HeroSection :title="settings.heroTitle" :subtitle="settings.heroSubtitle" />
 
     <section class="intro section-pad reveal">
       <p class="eyebrow">Философия</p>
@@ -49,7 +57,7 @@ useSeoMeta({
         <p class="eyebrow">Портфолио</p>
         <h2>Проекты с атмосферой ручной работы</h2>
       </div>
-      <PortfolioGrid />
+      <PortfolioGrid :items="portfolioItems" />
     </section>
 
     <CtaForm />

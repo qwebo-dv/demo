@@ -1,3 +1,13 @@
+export const siteSettings = {
+  brand: 'ArchTerra',
+  legalName: 'ООО «АрхТерра Групп»',
+  domain: 'https://archterra.ru/',
+  slogan: 'Архитектура в природном материале',
+  description: 'ArchTerra — архитектура в природном материале: натуральный камень, художественная роспись, ландшафт и архитектурное освещение.',
+  heroTitle: 'Природный камень\nи архитектура без времени',
+  heroSubtitle: 'Москва · Эстетика природы и пространства'
+}
+
 export const services = [
   {
     slug: 'stone',

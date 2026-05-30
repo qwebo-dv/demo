@@ -2,6 +2,13 @@ export default defineNuxtConfig({
   compatibilityDate: '2026-05-30',
   devtools: { enabled: true },
   css: ['~/assets/css/main.css'],
+  runtimeConfig: {
+    strapiUrl: process.env.STRAPI_URL || '',
+    strapiApiToken: process.env.STRAPI_API_TOKEN || '',
+    public: {
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://archterra.ru'
+    }
+  },
   app: {
     head: {
       htmlAttrs: { lang: 'ru' },

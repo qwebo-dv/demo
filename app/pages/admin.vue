@@ -1,23 +1,23 @@
 <script setup lang="ts">
-const items = ref([
-  { title: 'Главный экран', status: 'готов к публикации', hint: 'Замените hero-изображение и лид-абзац' },
-  { title: 'Направления', status: '4 раздела', hint: 'Редактируйте тексты услуг и этапы работ' },
-  { title: 'Портфолио', status: '6 проектов', hint: 'Добавляйте кейсы, фото и описания' }
-])
+const adminItems = [
+  { title: 'Главный экран', status: 'Site settings', hint: 'Бренд, юридическое название, слоган, SEO-описание и hero-текст редактируются в single type Site settings.' },
+  { title: 'Направления', status: 'Collection: services', hint: 'Страницы камня, росписи, света и ландшафта управляются в коллекции Services.' },
+  { title: 'Портфолио', status: 'Collection: portfolio items', hint: 'Кейсы, изображения, категории и порядок вывода хранятся в Portfolio items.' }
+]
 
-useSeoMeta({ title: 'Админ-панель', description: 'Демо-панель управления контентом сайта ArchTerra.' })
+useSeoMeta({ title: 'Админ-панель Strapi', description: 'Strapi CMS для управления контентом сайта ArchTerra.' })
 </script>
 <template>
   <section class="admin section-pad">
-    <p class="eyebrow">Content studio</p>
-    <h1>Админ-панель ArchTerra</h1>
-    <p>Демо-интерфейс показывает структуру контента для менеджера. Для продакшена его можно подключить к Nuxt Content, Directus, Strapi или другой headless CMS.</p>
+    <p class="eyebrow">Strapi CMS</p>
+    <h1>Админ-панель ArchTerra работает через Strapi</h1>
+    <p>Запустите CMS командой <code>npm run cms:dev</code>, создайте администратора на <code>http://localhost:1337/admin</code> и выдайте public или API-token доступ к published контенту для Nuxt.</p>
     <div class="admin-grid">
-      <article v-for="item in items" :key="item.title">
+      <article v-for="item in adminItems" :key="item.title">
         <span>{{ item.status }}</span>
         <h2>{{ item.title }}</h2>
         <p>{{ item.hint }}</p>
-        <button class="btn ghost" type="button">Редактировать</button>
+        <a class="btn ghost" href="http://localhost:1337/admin" target="_blank" rel="noreferrer">Открыть Strapi</a>
       </article>
     </div>
   </section>

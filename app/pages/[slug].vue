@@ -1,8 +1,12 @@
 <script setup lang="ts">
-import { services } from '~/data/site'
+import { services as fallbackServices } from '~/data/site'
 
 const route = useRoute()
-const service = computed(() => services.find(item => item.slug === route.params.slug))
+const { data: content } = await useFetch('/api/content', {
+  default: () => ({ services: fallbackServices })
+})
+const services = computed(() => content.value.services?.length ? content.value.services : fallbackServices)
+const service = computed(() => services.value.find(item => item.slug === route.params.slug))
 
 if (!service.value) {
   throw createError({ statusCode: 404, statusMessage: 'Страница не найдена' })
