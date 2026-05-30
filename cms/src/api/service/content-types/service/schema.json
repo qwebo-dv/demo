@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "services",
+  "info": {
+    "singularName": "service",
+    "pluralName": "services",
+    "displayName": "Service",
+    "description": "ArchTerra service direction page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "slug": { "type": "uid", "targetField": "title", "required": true },
+    "title": { "type": "string", "required": true },
+    "short": { "type": "text", "required": true },
+    "eyebrow": { "type": "string" },
+    "image": { "type": "string" },
+    "master": { "type": "string" },
+    "story": { "type": "richtext" },
+    "philosophy": { "type": "richtext" },
+    "services": { "type": "json" },
+    "process": { "type": "json" },
+    "gallery": { "type": "json" },
+    "sortOrder": { "type": "integer", "default": 0 }
+  }
+}
