@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#d7c4a6"/><stop offset="1" stop-color="#9f896c"/></linearGradient>
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 .18"/></feComponentTransfer></filter>
+  </defs>
+  <rect width="1200" height="800" fill="url(#g)"/>
+  <path d="M0 510 C160 390 240 440 365 330 C500 210 615 335 760 230 C905 130 1020 210 1200 96 L1200 800 L0 800Z" fill="#f4e8d5" opacity=".42"/>
+  <path d="M0 590 C220 520 375 610 565 485 C735 372 900 480 1200 330 L1200 800 L0 800Z" fill="#516246" opacity=".26"/>
+  <g opacity=".48" fill="none" stroke="#f7ead8" stroke-width="18"><path d="M720 770V410M820 770V360M930 770V455M1030 770V390"/><path d="M650 580H1110M610 680H1160"/></g>
+  <circle cx="910" cy="235" r="150" fill="#f1ddc3" opacity=".35"/>
+  <path d="M895 116 C972 190 1000 312 934 405 C875 330 803 274 760 210 C790 148 835 112 895 116Z" fill="#e7d2b6" opacity=".68"/>
+  <text x="70" y="130" fill="#f8efe3" font-family="Georgia, serif" font-size="76">Камень 1</text>
+  <rect width="1200" height="800" filter="url(#grain)" opacity=".5"/>
+</svg>
